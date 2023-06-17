@@ -1,0 +1,75 @@
+# Fluxo de Carrinho Anônimo
+
+Este documento descreve o fluxo e as estratégias utilizadas para permitir que clientes não logados adicionem itens a uma sacola ou carrinho temporário em um aplicativo de delivery de restaurantes semelhante ao iFood.
+
+## Fluxo de Funcionalidades
+
+### Exibição de Opções
+
+Os clientes não logados terão acesso às opções do menu.
+Ao lado de cada item do menu, será exibido o botão "Adicionar à Sacola" ou "Adicionar ao Carrinho".
+
+### Adicionar Item à Sacola ou Carrinho
+
+Ao clicar no botão "Adicionar à Sacola" ou "Adicionar ao Carrinho", um modal ou uma página de "Checkout" simplificada será exibido.
+O modal ou a página de "Checkout" permitirá que o cliente reveja os itens adicionados e realize ações como aumentar ou diminuir a quantidade de cada item.
+
+### Opções de Login ou Criação de Conta
+
+Na página de "Checkout", será fornecida a opção de login ou criação de conta.
+Se o cliente optar por fazer login ou criar uma conta, o carrinho temporário será vinculado à conta do cliente.
+
+### Continuar como Convidado
+
+Se o cliente optar por continuar como convidado, a página de "Checkout" fornecerá campos para capturar informações de entrega e pagamento.
+Após o pagamento ser concluído, as informações do cliente e os itens no carrinho temporário serão armazenados temporariamente no servidor.
+
+### Acesso ao Carrinho Temporário
+
+Caso o cliente não logado retorne ao aplicativo em uma sessão posterior, ele poderá visualizar o carrinho temporário previamente salvo.
+O carrinho temporário ficará disponível até que o cliente faça login ou crie uma conta.
+
+### Vinculação do Carrinho Temporário
+
+Ao fazer login ou criar uma conta após retornar ao aplicativo, o carrinho temporário será vinculado à conta do cliente.
+Os itens no carrinho temporário serão transferidos para o carrinho permanente associado à conta do cliente.
+
+## Implementação Técnica
+
+O fluxo de carrinho anônimo pode ser implementado usando as seguintes tecnologias e abordagens:
+
+- **Frontend**: Angular
+- **Backend**: Java com Spring
+
+A implementação envolve as seguintes etapas:
+
+1. Configurar as rotas no Angular para exibir o menu e a página de "Checkout".
+2. No componente do menu, exibir os botões "Adicionar à Sacola" ou "Adicionar ao Carrinho" para cada item do menu.
+3. Ao clicar em um desses botões, abrir um modal ou redirecionar para a página de "Checkout" simplificada.
+4. Na página de "Checkout", fornecer campos para login ou criação de conta, além de campos para informações de entrega e pagamento.
+5. Ao fazer login ou criar uma conta, enviar as informações para o backend Java com Spring e vincular o carrinho temporário à conta do cliente.
+6. Ao continuar como convidado, enviar as informações de entrega e pagamento para o backend Java com Spring para processamento.
+7. No backend Java com Spring, criar endpoints para receber e processar as informações enviadas pelo frontend.
+8. Armazenar temporariamente as informações do cliente e os itens no carrinho temporário no servidor, usando um banco de dados ou uma estrutura de cache.
+9. Implementar a lógica para vincular o carrinho temporário à conta do cliente quando o login ou a criação de conta for realizado.
+10. Ao retornar ao aplicativo, verificar se há um carrinho temporário associado à sessão do cliente e exibi-lo quando aplicável.
+11. Transferir os itens do carrinho temporário para o carrinho permanente associado à conta do cliente quando o login ou a criação de conta for realizado.
+
+```
+Se o cliente estiver logado:
+    Exibir botão "Adicionar à Sacola" ou "Adicionar ao Carrinho"
+    Ao clicar em "Adicionar à Sacola" ou "Adicionar ao Carrinho":
+        Adicionar item à sacola ou carrinho do cliente logado
+
+Se o cliente não estiver logado:
+    Exibir botão "Adicionar à Sacola" ou "Adicionar ao Carrinho"
+    Ao clicar em "Adicionar à Sacola" ou "Adicionar ao Carrinho":
+        Exibir página de "Checkout" simplificada
+        Fornecer opção de login ou criação de conta
+        Se o cliente fizer login ou criar uma conta:
+            Vincular itens adicionados à conta do cliente
+        Se o cliente optar por continuar como convidado:
+            Fornecer campos para informações de entrega e pagamento
+            Processar pagamento e armazenar informações do cliente
+            Vincular itens adicionados à sessão do cliente ou criar uma conta com as informações fornecidas
+```
