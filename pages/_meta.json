@@ -1,6 +1,9 @@
 {
   "index": "Introduction",
   "carrinho-anonimo":  "Carrinho Anônimo",
+  "pagina-inicial": {
+    "doc-tecnica": "pagina-inicial"
+  },
   "about": {
     "title": "About",
     "type": "page"

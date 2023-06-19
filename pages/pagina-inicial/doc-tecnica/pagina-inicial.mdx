@@ -1,0 +1,48 @@
+import Image from 'nextra-theme-docs'
+
+# Implementação do Controller do cliente na API de Delivery de Comidas
+
+## Pré-requisitos
+
+Antes de começar, certifique-se de ter o seguinte ambiente configurado:
+
+- JDK (Java Development Kit) versão 17 instalado na sua máquina.
+- Ambiente de desenvolvimento Java configurado.
+
+## Passo 1: Criar Customer Controller
+
+1. Crie a classe CustomerController dentro do pacote de controllers dos clientes
+
+## Passo 2: Implementação dos Endpoints
+
+1. Crie os controladores (controllers) responsáveis por receber as requisições HTTP e lidar com as operações do cliente.
+2. Implemente os endpoints para fornecer os dados necessários para a página inicial do cliente, como:
+   - `GET /destaques`: Retorna uma lista de destaques e promoções de restaurantes ou pratos em destaque.
+   - `GET /categorias`: Retorna uma lista de categorias de comida disponíveis.
+   - `GET /pratos/{id}`: Retorna os detalhes de um prato específico com base no seu ID.
+   - `GET /restaurantes/{id}/menu`: Retorna o menu completo de um restaurante específico.
+   - `GET /restaurantes/{id}/avaliacoes`: Retorna as avaliações de um restaurante específico.
+   - `POST /pedidos`: Cria um novo pedido com base nos itens selecionados pelo cliente.
+
+## Passo 3: Integração com a Camada de Dados
+
+1. Implemente os serviços (services) que serão responsáveis por acessar e manipular os dados das entidades.
+2. Utilize os repositórios do Spring Data JPA para realizar operações de consulta e persistência no banco de dados.
+3. Implemente a lógica necessária para buscar os dados relevantes para cada endpoint e fornecê-los aos controladores.
+
+## Passo 4: Validação e Tratamento de Erros
+
+1. Implemente validações nos controladores para garantir que os dados recebidos sejam válidos antes de processá-los.
+2. Trate os erros de forma adequada, fornecendo respostas HTTP apropriadas com informações úteis sobre os erros ocorridos.
+
+## Passo 5: Testes Unitários e de Integração
+
+1. Crie testes unitários para verificar o comportamento correto dos serviços e controladores.
+2. Implemente testes de integração para garantir que as diferentes partes da API estejam funcionando corretamente juntas.
+
+## Passo 6: Documentação da API
+
+1. Utilize ferramentas como o Swagger ou o Spring REST Docs para gerar documentação automatizada da API.
+2. Documente os endpoints, os parâmetros, as respostas esperadas e os exemplos de uso para facilitar o consumo da API pelos desenvolvedores.
+
+Lembre-se de seguir boas práticas de arquitetura e design de software durante todo o processo de implementação, garantindo a modularidade, a escalabilidade e a manutenibilidade da sua API de delivery de comidas.
